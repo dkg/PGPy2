@@ -17,7 +17,7 @@ It can create and verify RSA, DSA, and ECDSA signatures, at the moment. It can a
 Installation
 ------------
 
-To install PGPy2, simply:
+To install PGPy2, you should be able to do (but it is not yet set up, since the fork):
 
 .. code-block:: bash
 
@@ -26,7 +26,7 @@ To install PGPy2, simply:
 Documentation
 -------------
 
-`PGPy2 Documentation <https://pgpy2.readthedocs.io/en/latest/>`_
+`PGPy2 Documentation <https://pgpy2.readthedocs.io/en/latest/>`_ (not set up yet since the fork)
 
 Discussion
 ----------

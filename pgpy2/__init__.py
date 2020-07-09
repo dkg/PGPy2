@@ -1,4 +1,4 @@
-""" PGPy :: Pretty Good Privacy for Python
+""" PGPy2 :: Pretty Good Privacy for Python
 """
 from ._author import *
 

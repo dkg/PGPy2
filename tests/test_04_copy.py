@@ -9,9 +9,9 @@ import inspect
 import os.path
 import six
 
-import pgpy
+import pgpy2
 
-from pgpy import PGPSignature, PGPUID, PGPMessage, PGPKey
+from pgpy2 import PGPSignature, PGPUID, PGPMessage, PGPKey
 
 
 _keys = glob.glob('tests/testdata/keys/*.1.pub.asc') + glob.glob('tests/testdata/keys/*.1.sec.asc')
@@ -61,7 +61,7 @@ def check_id(obj):
     # integers are kind of a special case.
     #   ints that do not exceed sys.maxsize are singletons, and in either case are immutable
     #   this shouldn't apply to MPIs, though, which are subclasses of int
-    if isinstance(obj, int) and not isinstance(obj, pgpy.packet.types.MPI):
+    if isinstance(obj, int) and not isinstance(obj, pgpy2.packet.types.MPI):
         return False
 
     return True
@@ -85,11 +85,11 @@ def test_copy_obj(request, obj):
 
     for k in sorted(objflat, key=ksort):
         print("checking attribute: {} ".format(k), end="")
-        if isinstance(objflat[k], pgpy.types.SorteDeque):
+        if isinstance(objflat[k], pgpy2.types.SorteDeque):
             print("[SorteDeque] ", end="")
             assert len(objflat[k]) == len(obj2flat[k])
 
-        if not isinstance(objflat[k], (pgpy.types.PGPObject, pgpy.types.SorteDeque)):
+        if not isinstance(objflat[k], (pgpy2.types.PGPObject, pgpy2.types.SorteDeque)):
             print("[{} ]".format(type(objflat[k])), end="")
             assert objflat[k] == objflat[k], k
 

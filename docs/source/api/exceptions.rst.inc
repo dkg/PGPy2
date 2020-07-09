@@ -1,7 +1,7 @@
 Exceptions
 ==========
 
-.. py:currentmodule:: pgpy.errors
+.. py:currentmodule:: pgpy2.errors
 
 
 :py:class:`PGPError`

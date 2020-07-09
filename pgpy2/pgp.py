@@ -1382,7 +1382,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
 
     @property
     def fingerprint(self):
-        """The fingerprint of this key, as a :py:obj:`~pgpy.types.Fingerprint` object."""
+        """The fingerprint of this key, as a :py:obj:`~pgpy2.types.Fingerprint` object."""
         if self._key:
             return self._key.fingerprint
 
@@ -1762,7 +1762,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
         Emits a :py:obj:`~warnings.UserWarning` if the key is public or not passphrase protected.
 
         :param str passphrase: The passphrase to be used to unlock this key.
-        :raises: :py:exc:`~pgpy.errors.PGPDecryptionError` if the passphrase is incorrect
+        :raises: :py:exc:`~pgpy2.errors.PGPDecryptionError` if the passphrase is incorrect
         """
         if self.is_public:
             # we can't unprotect public keys because only private key material is ever protected
@@ -1792,7 +1792,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
         Add a User ID to this key.
 
         :param uid: The user id to add
-        :type uid: :py:obj:`~pgpy.PGPUID`
+        :type uid: :py:obj:`~pgpy2.PGPUID`
         :param selfsign: Whether or not to self-sign the user id before adding it
         :type selfsign: ``bool``
 
@@ -1811,7 +1811,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
 
         :param search: A text string to match name, comment, or email address against
         :type search: ``str``, ``unicode``
-        :return: The first matching :py:obj:`~pgpy.PGPUID`, or ``None`` if no matches were found.
+        :return: The first matching :py:obj:`~pgpy2.PGPUID`, or ``None`` if no matches were found.
         """
         if self.is_primary:
             return next((u for u in self._uids if search in filter(lambda a: a is not None, (u.name, u.comment, u.email))), None)
@@ -1820,7 +1820,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
     def del_uid(self, search):
         """
         Find and remove a user id that matches the search string given. This method does not modify the corresponding
-        :py:obj:`~pgpy.PGPUID` object; it only removes it from the list of user ids on the key.
+        :py:obj:`~pgpy2.PGPUID` object; it only removes it from the list of user ids on the key.
 
         :param search: A text string to match name, comment, or email address against
         :type search: ``str``, ``unicode``
@@ -1836,7 +1836,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
     def add_subkey(self, key, **prefs):
         """
         Add a key as a subkey to this key.
-        :param key: A private :py:obj:`~pgpy.PGPKey` that does not have any subkeys of its own
+        :param key: A private :py:obj:`~pgpy2.PGPKey` that does not have any subkeys of its own
 
         :keyword usage: A ``set`` of key usage flags, as :py:obj:`~constants.KeyFlags` for the subkey to be added.
         :type usage: ``set``
@@ -1979,9 +1979,9 @@ class PGPKey(Armorable, ParentRef, PGPObject):
         Sign text, a message, or a timestamp using this key.
 
         :param subject: The text to be signed
-        :type subject: ``str``, :py:obj:`~pgpy.PGPMessage`, ``None``
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is passphrase-protected and has not been unlocked
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is public
+        :type subject: ``str``, :py:obj:`~pgpy2.PGPMessage`, ``None``
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is passphrase-protected and has not been unlocked
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is public
         :returns: :py:obj:`PGPSignature`
 
         The following optional keyword arguments can be used with :py:meth:`PGPKey.sign`, as well as
@@ -2034,8 +2034,8 @@ class PGPKey(Armorable, ParentRef, PGPObject):
         :param level: :py:obj:`~constants.SignatureType.Generic_Cert`, :py:obj:`~constants.SignatureType.Persona_Cert`,
                       :py:obj:`~constants.SignatureType.Casual_Cert`, or :py:obj:`~constants.SignatureType.Positive_Cert`.
                       Only used if subject is a :py:obj:`PGPUID`; otherwise, it is ignored.
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is passphrase-protected and has not been unlocked
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is public
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is passphrase-protected and has not been unlocked
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is public
         :returns: :py:obj:`PGPSignature`
 
         In addition to the optional keyword arguments accepted by :py:meth:`PGPKey.sign`, the following optional
@@ -2194,8 +2194,8 @@ class PGPKey(Armorable, ParentRef, PGPObject):
 
         :param target: The key to revoke
         :type target: :py:obj:`PGPKey`, :py:obj:`PGPUID`
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is passphrase-protected and has not been unlocked
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is public
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is passphrase-protected and has not been unlocked
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is public
         :returns: :py:obj:`PGPSignature`
 
         In addition to the optional keyword arguments accepted by :py:meth:`PGPKey.sign`, the following optional
@@ -2240,8 +2240,8 @@ class PGPKey(Armorable, ParentRef, PGPObject):
 
         :param revoker: The :py:obj:`PGPKey` to specify as a valid revocation key.
         :type revoker: :py:obj:`PGPKey`
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is passphrase-protected and has not been unlocked
-        :raises: :py:exc:`~pgpy.errors.PGPError` if the key is public
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is passphrase-protected and has not been unlocked
+        :raises: :py:exc:`~pgpy2.errors.PGPError` if the key is public
         :returns: :py:obj:`PGPSignature`
 
         In addition to the optional keyword arguments accepted by :py:meth:`PGPKey.sign`, the following optional
@@ -2332,7 +2332,7 @@ class PGPKey(Armorable, ParentRef, PGPObject):
         :type subject: ``str``, ``unicode``, ``None``, :py:obj:`PGPMessage`, :py:obj:`PGPKey`, :py:obj:`PGPUID`
         :param signature: If the signature is detached, it should be specified here.
         :type signature: :py:obj:`PGPSignature`
-        :returns: :py:obj:`~pgpy.types.SignatureVerification`
+        :returns: :py:obj:`~pgpy2.types.SignatureVerification`
         """
         sspairs = []
 

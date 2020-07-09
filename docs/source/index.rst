@@ -1,8 +1,8 @@
-##################
-PGPy Documentation
-##################
+###################
+PGPy2 Documentation
+###################
 
-``PGPy`` is a Python (2 and 3) implementation of the OpenPGP specification, as described in `RFC 4880`_.
+``PGPy2`` is a Python (2 and 3) implementation of the OpenPGP specification, as described in `RFC 4880`_.
 
 It aims to be easy to use above all else, but also to eventually embody a complete,
 compliant implementation of the specification.

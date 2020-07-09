@@ -3,7 +3,7 @@
 """
 import pytest
 
-from pgpy.types import PGPObject
+from pgpy2.types import PGPObject
 
 text = {
     # some basic utf-8 test strings - these should all pass
@@ -28,7 +28,7 @@ encoded_text = {
 }
 
 
-# test harness for pgpy.types.PGPObject, since it defines a couple of abstract methods
+# test harness for pgpy2.types.PGPObject, since it defines a couple of abstract methods
 class FakePGPObject(PGPObject):
     @classmethod
     def new(cls, text):

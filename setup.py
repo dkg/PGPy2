@@ -7,7 +7,7 @@ from setuptools import setup
 if sys.version_info[:2] >= (3, 3):
     # on Python 3.3+, we can import a file directly using importlib.machinery.SourceFileLoader
     import importlib.machinery
-    _loader = importlib.machinery.SourceFileLoader('_author', 'pgpy/_author.py')
+    _loader = importlib.machinery.SourceFileLoader('_author', 'pgpy2/_author.py')
     _author = _loader.load_module()
 
 else:
@@ -39,7 +39,7 @@ if sys.version_info[:2] < (3, 4):
 
 setup(
     # metadata
-    name             = 'PGPy',
+    name             = 'PGPy2',
     version          = _author.__version__,
     description      = 'Pretty Good Privacy for Python',
     long_description = long_desc,
@@ -79,14 +79,14 @@ setup(
     install_requires = _requires,
 
     # urls
-    url              = "https://github.com/SecurityInnovation/PGPy",
-    download_url     = "https://github.com/SecurityInnovation/PGPy/archive/{pgpy_ver}.tar.gz".format(pgpy_ver=_author.__version__),
-    # bugtrack_url     = "https://github.com/SecurityInnovation/PGPy/issues",
+    url              = "https://github.com/dkg/PGPy2",
+    download_url     = "https://github.com/dkg/PGPy2/archive/{pgpy_ver}.tar.gz".format(pgpy_ver=_author.__version__),
+    # bugtrack_url     = "https://github.com/dkg/PGPy2/issues",
 
     # package hierarchy
     packages = [
-        "pgpy",
-        "pgpy.packet",
-        "pgpy.packet.subpackets"
+        "pgpy2",
+        "pgpy2.packet",
+        "pgpy2.packet.subpackets"
     ],
 )

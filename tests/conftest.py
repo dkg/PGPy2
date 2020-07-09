@@ -1,4 +1,4 @@
-"""PGPy conftest"""
+"""PGPy2 conftest"""
 import pytest
 
 import glob
@@ -39,7 +39,7 @@ if os.path.join(os.getcwd(), 'tests') not in sys.path:
 # pytest_configure
 # called after command line options have been parsed and all plugins and initial conftest files been loaded.
 def pytest_configure(config):
-    print("== PGPy Test Suite ==")
+    print("== PGPy2 Test Suite ==")
 
     if gpg:
         # clear out gnupghome

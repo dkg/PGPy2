@@ -4,23 +4,23 @@ Keys
 Generating Keys
 ---------------
 
-PGPy can generate most types keys as defined in the standard.
+PGPy2 can generate most types keys as defined in the standard.
 
 Generating Primary Keys
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-It is possible to generate most types of keys with PGPy now. The process is mostly straightforward::
+It is possible to generate most types of keys with PGPy2 now. The process is mostly straightforward::
 
-    from pgpy.constants import PubKeyAlgorithm, KeyFlags, HashAlgorithm, SymmetricKeyAlgorithm, CompressionAlgorithm
+    from pgpy2.constants import PubKeyAlgorithm, KeyFlags, HashAlgorithm, SymmetricKeyAlgorithm, CompressionAlgorithm
 
     # we can start by generating a primary key. For this example, we'll use RSA, but it could be DSA or ECDSA as well
-    key = pgpy.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 4096)
+    key = pgpy2.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 4096)
 
     # we now have some key material, but our new key doesn't have a user ID yet, and therefore is not yet usable!
-    uid = pgpy.PGPUID.new('Abraham Lincoln', comment='Honest Abe', email='abraham.lincoln@whitehouse.gov')
+    uid = pgpy2.PGPUID.new('Abraham Lincoln', comment='Honest Abe', email='abraham.lincoln@whitehouse.gov')
 
     # now we must add the new user id to the key. We'll need to specify all of our preferences at this point
-    # because PGPy doesn't have any built-in key preference defaults at this time
+    # because PGPy2 doesn't have any built-in key preference defaults at this time
     # this example is similar to GnuPG 2.1.x defaults, with no expiration or preferred keyserver
     key.add_uid(uid, usage={KeyFlags.Sign, KeyFlags.EncryptCommunications, KeyFlags.EncryptStorage},
                 hashes=[HashAlgorithm.SHA256, HashAlgorithm.SHA384, HashAlgorithm.SHA512, HashAlgorithm.SHA224],
@@ -33,8 +33,8 @@ using a :py:obj:`datetime.datetime` or a :py:obj:`datetime.timedelta` object::
     from datetime import timedelta
 
     # in this example, we'll use fewer preferences for the sake of brevity, and set the key to expire in 10 years
-    key = pgpy.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 4096)
-    uid = pgpy.PGPUID.new('Nikola Tesla')  # comment and email are optional
+    key = pgpy2.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 4096)
+    uid = pgpy2.PGPUID.new('Nikola Tesla')  # comment and email are optional
 
     # the key_expires keyword accepts a :py:obj:`datetime.datetime`
     key.add_uid(uid, usage={KeyFlags.Sign}, hashes=[HashAlgorithm.SHA512, HashAlgorithm.SHA256],
@@ -48,7 +48,7 @@ Generating Sub Keys
 Generating a subkey is similar to the process above, except that it requires an existing primary key::
 
     # assuming we already have a primary key, we can generate a new key and add it as a subkey thusly:
-    subkey = pgpy.PGPKey.new(PubKeyAlgorithm.RSA, 4096)
+    subkey = pgpy2.PGPKey.new(PubKeyAlgorithm.RSA, 4096)
 
     # preferences that are specific to the subkey can be chosen here
     # any preference(s) needed for actions by this subkey that not specified here
@@ -69,14 +69,14 @@ Keys can be loaded individually into PGPKey objects::
     # by itself.
     # ASCII or binary data can be parsed into an empty PGPKey object with the .parse()
     # method
-    empty_key = pgpy.PGPKey()
+    empty_key = pgpy2.PGPKey()
     empty_key.parse(keyblob)
 
     # A key can be loaded from a file, like so:
-    key, _ = pgpy.PGPKey.from_file('path/to/key.asc')
+    key, _ = pgpy2.PGPKey.from_file('path/to/key.asc')
 
     # or from a text or binary string/bytes/bytearray that has already been read in:
-    key, _ = pgpy.PGPKey.from_blob(keyblob)
+    key, _ = pgpy2.PGPKey.from_blob(keyblob)
 
 Loading Keys Into a Keyring
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,11 +84,11 @@ Loading Keys Into a Keyring
 If you intend to maintain multiple keys in memory for extended periods, using a PGPKeyring may be more appropriate::
 
     # These two methods are mostly equivalent
-    kr = pgpy.PGPKeyring(glob.glob(os.path.expanduser('~/.gnupg/*ring.gpg')))
+    kr = pgpy2.PGPKeyring(glob.glob(os.path.expanduser('~/.gnupg/*ring.gpg')))
 
     # the only advantage to doing it this way, is the .load method returns a set containing
     #  the fingerprints of all keys and subkeys that were loaded this time
-    kr = pgpy.PGPKeyring()
+    kr = pgpy2.PGPKeyring()
     loaded = kr.load(glob.glob(os.path.expanduser('~/.gnupg/*ring.gpg')))
 
 Key Operations
@@ -109,7 +109,7 @@ It is usually recommended to passphrase-protect private keys. Adding a passphras
 Unlocking Protected Secret Keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have a key that is protected with a passphrase, you will need to unlock it first. PGPy handles this using
+If you have a key that is protected with a passphrase, you will need to unlock it first. PGPy2 handles this using
 a context manager block, which also removes the unprotected key material from the object once execution exits that block.
 
 Key unlocking is quite simple::

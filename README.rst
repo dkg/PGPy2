@@ -1,47 +1,37 @@
-PGPy: Pretty Good Privacy for Python
-====================================
-
-.. image:: https://badge.fury.io/py/PGPy.svg
-    :target: https://badge.fury.io/py/PGPy
-    :alt: Latest stable version
-
-.. image:: https://travis-ci.org/SecurityInnovation/PGPy.svg?branch=master
-    :target: https://travis-ci.org/SecurityInnovation/PGPy?branch=master
-    :alt: Travis-CI
-
-.. image:: https://coveralls.io/repos/github/SecurityInnovation/PGPy/badge.svg?branch=master
-    :target: https://coveralls.io/github/SecurityInnovation/PGPy?branch=master
-    :alt: Coveralls
+PGPy2: Pretty Good Privacy for Python
+=====================================
 
 Homepage: None yet.
 
-`PGPy` is a Python (2 and 3) library for implementing Pretty Good Privacy into Python programs, conforming to the OpenPGP specification per RFC 4880.
+`PGPy2` is a Python (2 and 3) library for implementing Pretty Good Privacy into Python programs, conforming to the OpenPGP specification per RFC 4880.
+
+It is a fork from `PGPy <https://github.com/SecurityInnovation/PGPy>`_.
 
 Features
 --------
 
-Currently, PGPy can load keys and signatures of all kinds in both ASCII armored and binary formats.
+Currently, PGPy2 can load keys and signatures of all kinds in both ASCII armored and binary formats.
 
 It can create and verify RSA, DSA, and ECDSA signatures, at the moment. It can also encrypt and decrypt messages using RSA and ECDH.
 
 Installation
 ------------
 
-To install PGPy, simply:
+To install PGPy2, simply:
 
 .. code-block:: bash
 
-    $ pip install PGPy
+    $ pip install PGPy2
 
 Documentation
 -------------
 
-`PGPy Documentation <https://pgpy.readthedocs.io/en/latest/>`_
+`PGPy2 Documentation <https://pgpy2.readthedocs.io/en/latest/>`_
 
 Discussion
 ----------
 
-Please report any bugs found on the `issue tracker <https://github.com/SecurityInnovation/PGPy/issues>`_
+Please report any bugs found on the `issue tracker <https://github.com/dkg/PGPy2/issues>`_
 
 You can also join ``#pgpy`` on Freenode to ask questions or get involved
 
@@ -65,4 +55,4 @@ Requirements
 License
 -------
 
-BSD 3-Clause licensed. See the bundled `LICENSE <https://github.com/SecurityInnovation/PGPy/blob/master/LICENSE>`_ file for more details.
+BSD 3-Clause licensed. See the bundled `LICENSE <https://github.com/dkg/PGPy2/blob/master/LICENSE>`_ file for more details.

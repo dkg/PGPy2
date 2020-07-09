@@ -11,16 +11,16 @@ New messages can be created quite easily::
 
     # this creates a standard message from text
     # it will also be compressed, by default with ZIP DEFLATE, unless otherwise specified
-    text_message = pgpy.PGPMessage.new("This is a brand spankin' new message!")
+    text_message = pgpy2.PGPMessage.new("This is a brand spankin' new message!")
 
     # if you'd like to pack a file into a message instead, you can do so
     # PGPMessage will store the basename of the file and the time it was last modified.
-    file_message = pgpy.PGPMessage.new("path/to/a/file", file=True)
+    file_message = pgpy2.PGPMessage.new("path/to/a/file", file=True)
 
     # or, if you want to create a *cleartext* message, which is what you may know as a
     # canonicalized text document with an inline signature block, that is done by setting
     # cleartext=True. You can load the contents of a file as above, as well.
-    ct_message = pgpy.PGPMessage.new("This is a shiny new cleartext document. Hooray!",
+    ct_message = pgpy2.PGPMessage.new("This is a shiny new cleartext document. Hooray!",
                                      cleartext=True)
 
 Loading Existing Messages
@@ -30,8 +30,8 @@ Existing messages can also be loaded very simply. This is nearly identical to lo
 it only returns the new message object, instead of a tuple::
 
     # PGPMessage will automatically determine if this is a cleartext message or not
-    message_from_file = pgpy.PGPMessage.from_file("path/to/a/message")
-    message_from_blob = pgpy.PGPMessage.from_blob(msg_blob)
+    message_from_file = pgpy2.PGPMessage.from_file("path/to/a/message")
+    message_from_blob = pgpy2.PGPMessage.from_blob(msg_blob)
 
 Exporting Messages
 ------------------

@@ -160,7 +160,7 @@ class PacketTag(IntEnum):
 class SymmetricKeyAlgorithm(IntEnum):
     """Supported symmetric key algorithms."""
     Plaintext = 0x00
-    #: .. warning:: IDEA is insecure. PGPy only allows it to be used for decryption, not encryption!
+    #: .. warning:: IDEA is insecure. PGPy2 only allows it to be used for decryption, not encryption!
     IDEA = 0x01
     #: Triple-DES with 168-bit key derived from 192
     TripleDES = 0x02
@@ -439,10 +439,10 @@ class KeyFlags(FlagEnum):
     Sign = 0x02
     #: Signifies that a key may be used to encrypt messages.
     EncryptCommunications = 0x04
-    #: Signifies that a key may be used to encrypt storage. Currently equivalent to :py:obj:`~pgpy.constants.EncryptCommunications`.
+    #: Signifies that a key may be used to encrypt storage. Currently equivalent to :py:obj:`~pgpy2.constants.EncryptCommunications`.
     EncryptStorage = 0x08
     #: Signifies that the private component of a given key may have been split by a secret-sharing mechanism. Split
-    #: keys are not currently supported by PGPy.
+    #: keys are not currently supported by PGPy2.
     Split = 0x10
     #: Signifies that a key may be used for authentication.
     Authentication = 0x20

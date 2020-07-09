@@ -1,7 +1,7 @@
 Constants
 =========
 
-.. py:currentmodule:: pgpy.constants
+.. py:currentmodule:: pgpy2.constants
 
 :py:class:`PubKeyAlgorithm`
 ---------------------------

@@ -10,7 +10,7 @@ Classes
     :members:
 
     .. py:attribute:: ascii_header
-        :annotation: = OrderedDict([('Version', 'PGPy v|version|')])
+        :annotation: = OrderedDict([('Version', 'PGPy2 v|version|')])
 
         An :py:obj:`~collections.OrderedDict` of headers that appear, in order, in the ASCII-armored form of this object.
 
@@ -129,7 +129,7 @@ Classes
 Other Objects
 =============
 
-.. py:currentmodule:: pgpy.types
+.. py:currentmodule:: pgpy2.types
 
 These are objects that are returned during certain operations, but are probably not useful to instantiate directly.
 

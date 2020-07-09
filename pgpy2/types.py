@@ -588,9 +588,9 @@ class SignatureVerification(object):
 
         ``sigsubj.verified`` - ``bool`` of whether the signature verified successfully or not.
 
-        ``sigsubj.by`` - the :py:obj:`~pgpy.PGPKey` that was used in this verify operation.
+        ``sigsubj.by`` - the :py:obj:`~pgpy2.PGPKey` that was used in this verify operation.
 
-        ``sigsubj.signature`` - the :py:obj:`~pgpy.PGPSignature` that was verified.
+        ``sigsubj.signature`` - the :py:obj:`~pgpy2.PGPSignature` that was verified.
 
         ``sigsubj.subject`` - the subject that was verified using the signature.
         """
@@ -605,9 +605,9 @@ class SignatureVerification(object):
 
         ``sigsubj.verified`` - ``bool`` of whether the signature verified successfully or not.
 
-        ``sigsubj.by`` - the :py:obj:`~pgpy.PGPKey` that was used in this verify operation.
+        ``sigsubj.by`` - the :py:obj:`~pgpy2.PGPKey` that was used in this verify operation.
 
-        ``sigsubj.signature`` - the :py:obj:`~pgpy.PGPSignature` that was verified.
+        ``sigsubj.signature`` - the :py:obj:`~pgpy2.PGPSignature` that was verified.
 
         ``sigsubj.subject`` - the subject that was verified using the signature.
         """

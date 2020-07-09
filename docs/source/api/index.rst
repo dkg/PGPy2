@@ -1,5 +1,5 @@
 ********
-PGPy API
+PGPy2 API
 ********
 
 .. include:: exceptions.rst.inc

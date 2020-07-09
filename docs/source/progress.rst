@@ -5,10 +5,10 @@ OpenPGP Implementation Progress
 OpenPGP RFCs
 ============
 
-PGPy is focused on eventually reaching complete OpenPGP implementation, adhering to the base OpenPGP message format specification, and its extension RFCs.
+PGPy2 is focused on eventually reaching complete OpenPGP implementation, adhering to the base OpenPGP message format specification, and its extension RFCs.
 
 .. progress:: RFC 4880
-    :text: PGPy is currently focused on achieving :rfc:`4880` compliance for OpenPGP, which is the latest complete OpenPGP Message Format specification. It supersedes RFC 1991 and RFC 2440.
+    :text: PGPy2 is currently focused on achieving :rfc:`4880` compliance for OpenPGP, which is the latest complete OpenPGP Message Format specification. It supersedes RFC 1991 and RFC 2440.
 
     :Versioned Packets, v1:
         - Tag 18, True,  Symetrically Encrypted and Integrity Protected Data Packet

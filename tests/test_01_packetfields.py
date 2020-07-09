@@ -4,16 +4,16 @@ import pytest
 
 import itertools
 
-from pgpy.constants import HashAlgorithm
-from pgpy.constants import String2KeyType
-from pgpy.constants import SymmetricKeyAlgorithm
-from pgpy.constants import S2KGNUExtension
-from pgpy.packet.fields import String2Key
-from pgpy.packet.types import Header
-from pgpy.packet.subpackets import Signature
-from pgpy.packet.subpackets import UserAttribute
-from pgpy.packet.subpackets.types import Header as HeaderSP
-from pgpy.packet.subpackets.types import Opaque as OpaqueSP
+from pgpy2.constants import HashAlgorithm
+from pgpy2.constants import String2KeyType
+from pgpy2.constants import SymmetricKeyAlgorithm
+from pgpy2.constants import S2KGNUExtension
+from pgpy2.packet.fields import String2Key
+from pgpy2.packet.types import Header
+from pgpy2.packet.subpackets import Signature
+from pgpy2.packet.subpackets import UserAttribute
+from pgpy2.packet.subpackets.types import Header as HeaderSP
+from pgpy2.packet.subpackets.types import Opaque as OpaqueSP
 
 
 _trailer = b'\xde\xca\xff\xba\xdd'

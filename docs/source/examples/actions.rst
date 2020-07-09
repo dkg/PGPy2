@@ -75,7 +75,7 @@ Another thing you may want to do is encrypt or decrypt messages.
 Encrypting/Decrypting Messages With a Public Key
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Encryption using keys requires a public key, while decryption requires a private key. PGPy currently only supports
+Encryption using keys requires a public key, while decryption requires a private key. PGPy2 currently only supports
 asymmetric encryption/decryption using RSA::
 
     # this returns a new PGPMessage that contains an encrypted form of the
@@ -92,7 +92,7 @@ Messages can also be encrypted to multiple recipients by pre-generating the sess
 
     # The symmetric cipher should be specified, in case the first preferred cipher is not
     #  the same for all recipients' public keys
-    cipher = pgpy.constants.SymmetricKeyAlgorithm.AES256
+    cipher = pgpy2.constants.SymmetricKeyAlgorithm.AES256
     sessionkey = cipher.gen_key()
 
     # encrypt the message to multiple recipients

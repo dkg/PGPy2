@@ -5,12 +5,12 @@ import glob
 import os
 import six
 
-from pgpy import PGPKey
-from pgpy import PGPKeyring
-from pgpy import PGPMessage
-from pgpy import PGPSignature
-from pgpy import PGPUID
-from pgpy.types import Fingerprint
+from pgpy2 import PGPKey
+from pgpy2 import PGPKeyring
+from pgpy2 import PGPMessage
+from pgpy2 import PGPSignature
+from pgpy2 import PGPUID
+from pgpy2.types import Fingerprint
 
 
 @pytest.fixture
@@ -29,7 +29,7 @@ class TestPGPMessage(object):
     @pytest.mark.parametrize('msgfile', _msgfiles, ids=[os.path.basename(f) for f in _msgfiles])
     def test_load_from_file(self, msgfile):
         # TODO: figure out a good way to verify that all went well here, because
-        #       PGPy reorders signatures sometimes, and also unwraps compressed messages
+        #       PGPy2 reorders signatures sometimes, and also unwraps compressed messages
         #       so comparing str(msg) to the contents of msgfile doesn't actually work
         msg = PGPMessage.from_file(msgfile)
 

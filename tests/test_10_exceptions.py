@@ -5,25 +5,25 @@ import pytest
 import glob
 import warnings
 
-from pgpy import PGPKey
-from pgpy import PGPKeyring
-from pgpy import PGPMessage
-from pgpy import PGPSignature
-from pgpy import PGPUID
-from pgpy.constants import EllipticCurveOID
-from pgpy.constants import HashAlgorithm
-from pgpy.constants import KeyFlags
-from pgpy.constants import PubKeyAlgorithm
-from pgpy.constants import SymmetricKeyAlgorithm
-from pgpy.packet import Packet
-from pgpy.types import Armorable
-from pgpy.types import PGPObject
-from pgpy.types import Fingerprint
-from pgpy.types import SignatureVerification
-from pgpy.errors import PGPError
-from pgpy.errors import PGPDecryptionError
-from pgpy.errors import PGPEncryptionError
-from pgpy.errors import PGPInsecureCipher
+from pgpy2 import PGPKey
+from pgpy2 import PGPKeyring
+from pgpy2 import PGPMessage
+from pgpy2 import PGPSignature
+from pgpy2 import PGPUID
+from pgpy2.constants import EllipticCurveOID
+from pgpy2.constants import HashAlgorithm
+from pgpy2.constants import KeyFlags
+from pgpy2.constants import PubKeyAlgorithm
+from pgpy2.constants import SymmetricKeyAlgorithm
+from pgpy2.packet import Packet
+from pgpy2.types import Armorable
+from pgpy2.types import PGPObject
+from pgpy2.types import Fingerprint
+from pgpy2.types import SignatureVerification
+from pgpy2.errors import PGPError
+from pgpy2.errors import PGPDecryptionError
+from pgpy2.errors import PGPEncryptionError
+from pgpy2.errors import PGPInsecureCipher
 
 
 def _read(f, mode='r'):

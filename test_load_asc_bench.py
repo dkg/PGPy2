@@ -8,9 +8,9 @@ import sys
 
 from progressbar import ProgressBar, AnimatedMarker, Timer, Bar, Percentage, Widget
 
-import pgpy
-from pgpy.packet import Packet
-from pgpy.types import Exportable
+import pgpy2
+from pgpy2.packet import Packet
+from pgpy2.types import Exportable
 
 
 ascfiles = [ os.path.abspath(os.path.expanduser(f)) for f in sys.argv[1:] if os.path.exists(os.path.abspath(os.path.expanduser(f))) ]
@@ -61,7 +61,7 @@ def _load_pubring(ascfile, future):
 
 @asyncio.coroutine
 def _unarmor(a, future):
-    b = yield from asyncio.get_event_loop().run_in_executor(None, pgpy.types.Exportable.ascii_unarmor, a)
+    b = yield from asyncio.get_event_loop().run_in_executor(None, pgpy2.types.Exportable.ascii_unarmor, a)
     future.set_result(b)
 
 _b = bytearray()
@@ -144,8 +144,8 @@ print("\n\n")
 print('Parsed Packet Stats\n')
 
 pcnts = collections.Counter(['{cls:s} v{v:d}'.format(cls=c.__class__.__name__, v=c.version) if hasattr(c, 'version') else c.__class__.__name__
-                             for c in packets if not isinstance(c, pgpy.packet.Opaque)] +
-                            ['Opaque [{:02d}]{:s}'.format(c.header.tag, '[v{:d}]'.format(c.header.version) if hasattr(c.header, 'version') else '') for c in packets if isinstance(c, pgpy.packet.Opaque)])
+                             for c in packets if not isinstance(c, pgpy2.packet.Opaque)] +
+                            ['Opaque [{:02d}]{:s}'.format(c.header.tag, '[v{:d}]'.format(c.header.version) if hasattr(c.header, 'version') else '') for c in packets if isinstance(c, pgpy2.packet.Opaque)])
 
 ml = max(5, max([len(s) for s in pcnts.keys()]))
 mcl = max(5, max([len("{:,}".format(c)) for c in pcnts.values()]))

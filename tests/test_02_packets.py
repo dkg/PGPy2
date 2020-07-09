@@ -5,11 +5,11 @@ import pytest
 import glob
 import os
 
-from pgpy.packet import Packet
-from pgpy.packet import PubKeyV4, PubSubKeyV4, PrivKeyV4, PrivSubKeyV4
-from pgpy.packet import Opaque
+from pgpy2.packet import Packet
+from pgpy2.packet import PubKeyV4, PubSubKeyV4, PrivKeyV4, PrivSubKeyV4
+from pgpy2.packet import Opaque
 
-# import pgpy.packet.fields
+# import pgpy2.packet.fields
 
 _trailer = b'\xde\xca\xff\xba\xdd'
 _pclasses = {

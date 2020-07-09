@@ -11,7 +11,7 @@ __all__ = ('PGPError',
 
 
 class PGPError(Exception):
-    """Raised as a general error in PGPy"""
+    """Raised as a general error in PGPy2"""
     pass
 
 

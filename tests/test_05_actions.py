@@ -16,24 +16,24 @@ import time
 import warnings
 from datetime import datetime, timedelta
 
-from pgpy import PGPKey
-from pgpy import PGPMessage
-from pgpy import PGPSignature
-from pgpy import PGPUID
-from pgpy._curves import _openssl_get_supported_curves
-from pgpy.constants import CompressionAlgorithm
-from pgpy.constants import EllipticCurveOID
-from pgpy.constants import Features
-from pgpy.constants import HashAlgorithm
-from pgpy.constants import KeyFlags
-from pgpy.constants import KeyServerPreferences
-from pgpy.constants import PubKeyAlgorithm
-from pgpy.constants import RevocationReason
-from pgpy.constants import SignatureType
-from pgpy.constants import SymmetricKeyAlgorithm
-from pgpy.packet import Packet
-from pgpy.packet.packets import PrivKeyV4
-from pgpy.packet.packets import PrivSubKeyV4
+from pgpy2 import PGPKey
+from pgpy2 import PGPMessage
+from pgpy2 import PGPSignature
+from pgpy2 import PGPUID
+from pgpy2._curves import _openssl_get_supported_curves
+from pgpy2.constants import CompressionAlgorithm
+from pgpy2.constants import EllipticCurveOID
+from pgpy2.constants import Features
+from pgpy2.constants import HashAlgorithm
+from pgpy2.constants import KeyFlags
+from pgpy2.constants import KeyServerPreferences
+from pgpy2.constants import PubKeyAlgorithm
+from pgpy2.constants import RevocationReason
+from pgpy2.constants import SignatureType
+from pgpy2.constants import SymmetricKeyAlgorithm
+from pgpy2.packet import Packet
+from pgpy2.packet.packets import PrivKeyV4
+from pgpy2.packet.packets import PrivSubKeyV4
 
 
 enc_msgs = [ PGPMessage.from_file(f) for f in sorted(glob.glob('tests/testdata/messages/message*.pass*.asc')) ]
@@ -177,7 +177,7 @@ class TestPGPMessage(object):
         assert encmsg.is_encrypted
         assert encmsg.type == 'encrypted'
 
-        # decrypt with PGPy
+        # decrypt with PGPy2
         decmsg = encmsg.decrypt("QwertyUiop")
 
         assert isinstance(decmsg, PGPMessage)
@@ -202,7 +202,7 @@ class TestPGPMessage(object):
         assert encmsg.is_encrypted
         assert encmsg.type == 'encrypted'
 
-        # decrypt with PGPy only, since GnuPG can't do multiple passphrases
+        # decrypt with PGPy2 only, since GnuPG can't do multiple passphrases
         for passwd in ["QwertyUiop", "AsdfGhjkl"]:
             decmsg = encmsg.decrypt(passwd)
 
@@ -526,7 +526,7 @@ class TestPGPKey_Management(object):
 
         subkey |= rsig
 
-        # verify with PGPy
+        # verify with PGPy2
         assert key.verify(subkey, rsig)
         assert rsig in subkey.revocation_signatures
 
@@ -550,7 +550,7 @@ class TestPGPKey_Management(object):
         assert 'ReasonForRevocation' in rsig._signature.subpackets
         key |= rsig
 
-        # verify with PGPy
+        # verify with PGPy2
         assert key.verify(key, rsig)
         assert rsig in key.revocation_signatures
 
@@ -593,7 +593,7 @@ def abe():
     uphoto = PGPUID.new(abebytes)
 
     # Abe is pretty oldschool, so he uses a DSA primary key
-    # normally he uses an ElGamal subkey for encryption, but PGPy doesn't support that yet, so he's settled for RSA for now
+    # normally he uses an ElGamal subkey for encryption, but PGPy2 doesn't support that yet, so he's settled for RSA for now
     key = PGPKey.new(PubKeyAlgorithm.DSA, 1024)
     subkey = PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 1024)
 

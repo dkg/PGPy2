@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# PGPy documentation build configuration file, created by
+# PGPy2 documentation build configuration file, created by
 # sphinx-quickstart on Thu May  1 18:03:51 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -25,7 +25,7 @@ _docsrcdir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _docsrcdir)
 sys.path.insert(0, os.path.dirname(os.path.dirname(_docsrcdir)))
 
-from pgpy._author import __version__
+from pgpy2._author import __version__
 
 # -- General configuration ------------------------------------------------
 
@@ -59,8 +59,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'PGPy'
-copyright = '2014-2019, Security Innovation, Inc'
+project = 'PGPy2'
+copyright = '2014-2019, Security Innovation, Inc; 2020, Daniel Kahn Gillmor'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -207,7 +207,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PGPydoc'
+htmlhelp_basename = 'PGPy2doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -227,7 +227,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 # latex_documents = [
-#   ('index', 'PGPy.tex', 'PGPy Documentation',
+#   ('index', 'PGPy.2tex', 'PGPy2 Documentation',
 #    'Michael Greene', 'manual'),
 # ]
 
@@ -257,7 +257,7 @@ latex_elements = {
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pgpy', 'PGPy Documentation',
+    ('index', 'pgpy2', 'PGPy2 Documentation',
      ['Michael Greene'], 1)
 ]
 
@@ -271,8 +271,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 # texinfo_documents = [
-#   ('index', 'PGPy', 'PGPy Documentation',
-#    'Michael Greene', 'PGPy', 'One line description of project.',
+#   ('index', 'PGPy2', 'PGPy2 Documentation',
+#    'Michael Greene', 'PGPy2', 'One line description of project.',
 #    'Miscellaneous'),
 # ]
 

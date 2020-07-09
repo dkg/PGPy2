@@ -1201,7 +1201,7 @@ class PrivKey(PubKey):
         return super(PrivKey, self).__len__()
 
     def encrypt_keyblob(self, passphrase, enc_alg, hash_alg):
-        # PGPy will only ever use iterated and salted S2k mode
+        # PGPy2 will only ever use iterated and salted S2k mode
         self.s2k.usage = 254
         self.s2k.encalg = enc_alg
         self.s2k.specifier = String2KeyType.Iterated
